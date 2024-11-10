@@ -10,11 +10,9 @@ namespace TODO
         public MainWindow()
         {
             InitializeComponent();
+            SetResourceReference(Window.StyleProperty, typeof(Window));
         }
 
-        private void TodoViewModel_ItemAdded(object sender, TodoItem e)
-        {
-            desc.Focus();
-        }
+        private void TodoViewModel_ItemAdded(object sender, TodoItem e) => desc.Focus();
     }
 }
