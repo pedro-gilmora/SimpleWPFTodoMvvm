@@ -17,7 +17,7 @@ public class RelayCommand : ICommand
 
     public void Execute(object? parameter) => _execute();
 
-    public event EventHandler CanExecuteChanged
+    public event EventHandler? CanExecuteChanged
     {
         add => CommandManager.RequerySuggested += value;
         remove => CommandManager.RequerySuggested -= value;

@@ -11,16 +11,14 @@ public class TodoViewModel : INotifyPropertyChanged
 
     public ObservableCollection<TodoItem> TodoItems { get; set; } = [];
 
-    public bool CanAddItem => _newTodoDescription.Trim() is not "";
-
     public string NewTodoDescription
     {
         get => _newTodoDescription;
         set
         {
             _newTodoDescription = value;
-            OnPropertyChanged(nameof(CanAddItem));
             OnPropertyChanged(nameof(NewTodoDescription));
+            
         }
     }
 
@@ -29,9 +27,11 @@ public class TodoViewModel : INotifyPropertyChanged
 
     public TodoViewModel()
     {
-        AddTodoCommand = new RelayCommand(AddTodo);
+        AddTodoCommand = new RelayCommand(AddTodo, CanAdd);
         RemoveTodoCommand = new RelayCommand<TodoItem>(RemoveTodo);
     }
+
+    private bool CanAdd() => _newTodoDescription is not "";
 
     private void AddTodo()
     {

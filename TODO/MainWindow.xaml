@@ -26,7 +26,6 @@
                      Height="30" 
                      Grid.Column="0"/>
             <Button Command="{Binding AddTodoCommand}" 
-                    IsEnabled="{Binding CanAddItem}" 
                     Content="Add" 
                     Height="30"
                     Grid.Column="1" Margin="10,0,0,0"/>
